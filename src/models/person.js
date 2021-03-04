@@ -7,9 +7,13 @@ class PersonModel {
     this.db = [];
   }
 
-  
+
   get(id) {
-  
+    if (id) {
+      return this.db.find(record => record.id === id);
+    } else {
+      return this.db;
+    }
   }
   
   create(obj) {
@@ -23,11 +27,15 @@ class PersonModel {
   }
   
   update(id, obj) {
-  
+    if(id) {
+      return obj
+    }
   }
   
   delete(id) {
-  
+    if(id){
+      this.db.splice(2, 1);
+    }
   }
 }
 
